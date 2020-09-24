@@ -48,12 +48,10 @@ namespace Usuarios_planta.Capa_presentacion
         private void Planos_dia_Load(object sender, EventArgs e)
         {
             lblfecha_actual.Text = fecha.ToString("dd/MM/yyyy");
-
             String sCadena = fecha.ToString("dd/MM/yyyy");
             String año = sCadena.Substring(6, 4);
             String mes = sCadena.Substring(3, 2);
             String dia = sCadena.Substring(0, 2);
-
             Txtplano_alta.Text = "PR_00860034133_" + año + mes + dia + TxtCod_plano.Text;
             Txtplano_baja.Text = "RP_00860034133_" + año + mes + dia + TxtCod_plano.Text;
         }
@@ -64,7 +62,6 @@ namespace Usuarios_planta.Capa_presentacion
             String año = sCadena.Substring(6, 4);
             String mes = sCadena.Substring(3, 2);
             String dia = sCadena.Substring(0, 2);
-
             Txtplano_alta.Text = "PR_00860034133_" + año + mes + dia + TxtCod_plano.Text;
             Txtplano_baja.Text = "RP_00860034133_" + año + mes + dia + TxtCod_plano.Text;
         }
@@ -98,11 +95,10 @@ namespace Usuarios_planta.Capa_presentacion
         {
             if (TxtCod_plano.Text == "")
             {
-                MessageBox.Show("Debe digitar el codigo del plano");
+                MessageBox.Show("Debe digitar el codigo del plano","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
-
                 if (ch_plano_alta.Checked)
                 {
                     //Esta línea de código crea un archivo de texto para la exportación de datos.
@@ -111,7 +107,6 @@ namespace Usuarios_planta.Capa_presentacion
                     try
                     {
                         string sLine = "";
-
                         //Este bucle for recorre cada fila de la tabla
                         for (int r = 0; r <= dgv_altas.Rows.Count - 1; r++)
                         {
@@ -133,9 +128,8 @@ namespace Usuarios_planta.Capa_presentacion
                             file.WriteLine(sLine);
                             sLine = "";
                         }
-
                         file.Close();
-                        MessageBox.Show("Ok archivo txt creado.", "Program Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Ok archivo plano creado.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception err)
                     {
@@ -151,7 +145,6 @@ namespace Usuarios_planta.Capa_presentacion
                     try
                     {
                         string sLine = "";
-
                         //Este bucle for recorre cada fila de la tabla
                         for (int r = 0; r <= dgv_bajas.Rows.Count - 1; r++)
                         {
@@ -174,7 +167,7 @@ namespace Usuarios_planta.Capa_presentacion
                         }
 
                         file.Close();
-                        MessageBox.Show("Ok archivo txt creado.", "Program Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Ok archivo plano creado.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception err)
                     {
@@ -184,7 +177,7 @@ namespace Usuarios_planta.Capa_presentacion
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar que plano va a crear");
+                    MessageBox.Show("Debe seleccionar que plano va a crear","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
             }
         }
