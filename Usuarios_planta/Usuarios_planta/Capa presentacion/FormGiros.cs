@@ -7,14 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.Net;
-using System.Net.Mail;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
-using DocumentFormat.OpenXml.Spreadsheet;
 using System.Globalization;
 using Color = System.Drawing.Color;
 
@@ -22,7 +18,7 @@ namespace Usuarios_planta.Formularios
 {
     public partial class FormGiros : Form
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds = new Comandos();
         Conversion c = new Conversion();
@@ -164,7 +160,7 @@ namespace Usuarios_planta.Formularios
         private void Btnbuscar_Click(object sender, EventArgs e)
         {
 
-            cmds.buscar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo, Txtscoring, Txtconsecutivo,
+            cmds.buscar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente,Txtafiliacion1, Txtafiliacion2, cmbtipo, Txtscoring, Txtconsecutivo,
                              cmbfuerza, cmbdestino, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtentidad, Txtcuota_letras,
                              Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado, cmbrechazo, dtpfecha_rpta,
                              Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario, TxtNomFuncionario);
@@ -297,39 +293,7 @@ namespace Usuarios_planta.Formularios
             BorrarMensajeError();
             if (validar())
             {
-                cmds.Insertar_colp(Txtradicado,Txtcedula,Txtnombre,TxtEstado_cliente,Txtafiliacion1,Txtafiliacion2,cmbtipo,
-                                   Txtscoring,Txtconsecutivo,cmbfuerza,cmbdestino,Txtmonto,Txtplazo,Txtcuota,Txttotal,Txtpagare,Txtnit,Txtentidad,
-                                   Txtcuota_letras,Txttotal_letras,cmbestado,cmbcargue,dtpcargue,dtpfecha_desembolso,cmbresultado,
-                                   cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios,TxtIDfuncionario,
-                                   TxtNomFuncionario);
-
-
-                cmds.historico_colp(Txtradicado,Txtcedula,Txtnombre,TxtEstado_cliente,Txtafiliacion1,Txtafiliacion2, cmbtipo,
-                                   Txtscoring,Txtconsecutivo,cmbfuerza,cmbdestino,Txtmonto,Txtplazo,Txtcuota,Txttotal,Txtpagare,Txtnit,Txtentidad,
-                                   Txtcuota_letras,Txttotal_letras,cmbestado,cmbcargue,dtpcargue,dtpfecha_desembolso,cmbresultado,
-                                   cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios,TxtIDfuncionario,
-                                   TxtNomFuncionario);
-
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = true;
-                this.Close();
-                Form formulario = new FormGiros();
-                formulario.Show();
-            }
-        }
-
-        private void Btn_Actualizar_Click_1(object sender, EventArgs e)
-        {
-            BorrarMensajeError();
-            if (validar())
-            {
-                cmds.actualizar_colp(Txtradicado,Txtcedula,Txtnombre,TxtEstado_cliente,Txtafiliacion1,Txtafiliacion2, cmbtipo,
-                                    Txtscoring,Txtconsecutivo,cmbfuerza,cmbdestino,Txtmonto,Txtplazo,Txtcuota,Txttotal,Txtpagare,Txtnit,Txtentidad,
-                                    Txtcuota_letras,Txttotal_letras,cmbestado,cmbcargue,dtpcargue,dtpfecha_desembolso,cmbresultado,
-                                    cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios,TxtIDfuncionario,
-                                    TxtNomFuncionario);
-
-                cmds.historico_colp(Txtradicado,Txtcedula,Txtnombre,TxtEstado_cliente,Txtafiliacion1,Txtafiliacion2, cmbtipo,
+                cmds.Insertar_colp(Txtradicado,Txtcedula,Txtnombre, TxtEstado_cliente, Txtafiliacion1,Txtafiliacion2,cmbtipo,
                                    Txtscoring,Txtconsecutivo,cmbfuerza,cmbdestino,Txtmonto,Txtplazo,Txtcuota,Txttotal,Txtpagare,Txtnit,Txtentidad,
                                    Txtcuota_letras,Txttotal_letras,cmbestado,cmbcargue,dtpcargue,dtpfecha_desembolso,cmbresultado,
                                    cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios,TxtIDfuncionario,
@@ -457,6 +421,134 @@ namespace Usuarios_planta.Formularios
         private void iconButton1_MouseHover(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+        }
+
+        private void Txtradicado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+             e.Handled = true;
+             SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtcedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtafiliacion1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtafiliacion2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtscoring_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtconsecutivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtmonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtplazo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtcuota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtentidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void TxtIDfuncionario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Btn_Actualizar_Click(object sender, EventArgs e)
+        {
+
+            BorrarMensajeError();
+            if (validar())
+            {
+                cmds.actualizar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
+                                    Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtentidad,
+                                    Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado,
+                                    cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
+                                    TxtNomFuncionario);
+
+                Btn_Actualizar.Enabled = true;
+                Btn_Guardar.Enabled = true;
+                this.Close();
+                Form formulario = new FormGiros();
+                formulario.Show();
+            }
         }
     }
 }

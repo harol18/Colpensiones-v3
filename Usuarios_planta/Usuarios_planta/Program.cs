@@ -18,6 +18,7 @@ namespace Usuarios_planta
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new VoBo());
+            //Application.Run(new Capa_presentacion.Login());
         }
     }
 }

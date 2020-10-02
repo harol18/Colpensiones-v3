@@ -447,6 +447,7 @@
             this.Name = "VoBo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vobo Pagador";
+            this.Load += new System.EventHandler(this.VoBo_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panel_planos.ResumeLayout(false);
             this.panelinformes.ResumeLayout(false);

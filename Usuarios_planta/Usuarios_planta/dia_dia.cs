@@ -14,8 +14,7 @@ namespace Usuarios_planta
 {
     class dia_dia
     {
-
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         public void Insertar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
                                   ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtrtq, TextBox Txtmonto, 
@@ -70,19 +69,8 @@ namespace Usuarios_planta
             }
             catch (Exception e)
             {
-                try
-                {
-                    myTrans.Rollback();
-                }
-                catch (MySqlException ex)
-                {
-                    if (myTrans.Connection != null)
-                    {
-                        MessageBox.Show("Se encontró una excepción de tipo" + ex.GetType() + " al intentar revertir la transacción..");
-                    }
-                }
-                MessageBox.Show("Se encontró una excepción de tipo " + e.GetType() + " al insertar los datos.");
-                MessageBox.Show("Ninguno de los registros se escribió en la base de datos.");
+                myTrans.Rollback();
+                MessageBox.Show(e.ToString());
             }
             finally
             {
@@ -142,19 +130,8 @@ namespace Usuarios_planta
             }
             catch (Exception e)
             {
-                try
-                {
-                    myTrans.Rollback();
-                }
-                catch (MySqlException ex)
-                {
-                    if (myTrans.Connection != null)
-                    {
-                        MessageBox.Show("Se encontró una excepción de tipo" + ex.GetType() + " al intentar revertir la transacción..");
-                    }
-                }
-                MessageBox.Show("Se encontró una excepción de tipo " + e.GetType() + " al insertar los datos.");
-                MessageBox.Show("Ninguno de los registros se escribió en la base de datos.");
+                myTrans.Rollback();
+                MessageBox.Show(e.ToString());
             }
             finally
             {
@@ -257,77 +234,6 @@ namespace Usuarios_planta
             }
         }
 
-        public void historico_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
-                                   ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtrtq, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
-                                   TextBox Txtpagare, TextBox Txtnit, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue,
-                                   DateTimePicker dtpcargue, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                   TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
-        {
-
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("historico_colp_dia", con);
-            MySqlTransaction myTrans; // Iniciar una transacción local 
-            myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente 
-            try
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Radicado", Txtradicado.Text);
-                cmd.Parameters.AddWithValue("@_Cedula", Txtcedula.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Cliente", Txtnombre.Text);
-                cmd.Parameters.AddWithValue("@_Estado_Cliente", TxtEstado_cliente.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion1", Txtafiliacion1.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion2", Txtafiliacion2.Text);
-                cmd.Parameters.AddWithValue("@_Tipo_Documento", cmbtipo.Text);
-                cmd.Parameters.AddWithValue("@_Scoring", Txtscoring.Text);
-                cmd.Parameters.AddWithValue("@_Consecutivo", Txtconsecutivo.Text);
-                cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbfuerza.Text);
-                cmd.Parameters.AddWithValue("@_Destino", cmbdestino.Text);
-                cmd.Parameters.AddWithValue("@_Rtq", Txtrtq.Text);
-                cmd.Parameters.AddWithValue("@_Monto_Aprobado", Txtmonto.Text);
-                cmd.Parameters.AddWithValue("@_Plazo_Aprobado", Txtplazo.Text);
-                cmd.Parameters.AddWithValue("@_Cuota", string.Format("{0:#}", double.Parse(Txtcuota.Text))); // se formate el numero para que no vaya con el . de la separacion de miles
-                cmd.Parameters.AddWithValue("@_Total", Txttotal.Text);
-                cmd.Parameters.AddWithValue("@_Pagare", Txtpagare.Text);
-                cmd.Parameters.AddWithValue("@_Nit", Txtnit.Text);
-                cmd.Parameters.AddWithValue("@_Cuota_Letras", Txtcuota_letras.Text);
-                cmd.Parameters.AddWithValue("@_Total_Letras", Txttotal_letras.Text);
-                cmd.Parameters.AddWithValue("@_Estado_operacion", cmbestado.Text);
-                cmd.Parameters.AddWithValue("@_Estado_cargue", cmbcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_Cargue", dtpcargue.Text);
-                cmd.Parameters.AddWithValue("@_Respuesta_Cargue", cmbresultado.Text);
-                cmd.Parameters.AddWithValue("@_Causal_Rechazo", cmbrechazo.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_respuesta", dtpfecha_rpta.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Dia", Txtplano_dia.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text);
-                cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
-                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
-                cmd.Parameters.AddWithValue("@_Id_Funcionario", TxtIDfuncionario.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", TxtNomFuncionario.Text);
-                cmd.ExecuteNonQuery();
-                myTrans.Commit();
-            }
-            catch (Exception e)
-            {
-                try
-                {
-                    myTrans.Rollback();
-                }
-                catch (MySqlException ex)
-                {
-                    if (myTrans.Connection != null)
-                    {
-                        MessageBox.Show("Se encontró una excepción de tipo" + ex.GetType() + " al intentar revertir la transacción..tabla historico");
-                    }
-                }
-                MessageBox.Show("Se encontró una excepción de tipo " + e.GetType() + " al insertar los datos. tabla historico");
-                MessageBox.Show("Ninguno de los registros se escribió en la base de datos.");
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
         public void pendiente_cargue_dia(DateTimePicker dtp_cargue, DataGridView dgv_altas, TextBox Txtfuncionario)
         {
             try
@@ -376,7 +282,6 @@ namespace Usuarios_planta
 
         public void busqueda_plano(DataGridView dgv_datos_plano, TextBox Txtbusqueda)
         {
-
             try
             {
                 con.Open();
@@ -399,7 +304,6 @@ namespace Usuarios_planta
 
         public void buscar_fallecido(TextBox Txtcedula, TextBox TxtEstado_cliente)
         {
-
             try
             {
                 con.Open();
@@ -429,7 +333,6 @@ namespace Usuarios_planta
 
         public void planos_cargue(DataGridView dgv_altas, TextBox Txtplano_alta)
         {
-
             try
             {
                 con.Open();
@@ -459,7 +362,6 @@ namespace Usuarios_planta
 
         public void actualizar_cargueckl(DataGridView dgv_altas, TextBox Txtplano_alta)
         {
-
             try
             {
                 con.Open();
@@ -488,7 +390,6 @@ namespace Usuarios_planta
 
         public void actualizar_rta_dia(DataGridView dgv_datos_plano)
         {
-
             try
             {
                 con.Open();

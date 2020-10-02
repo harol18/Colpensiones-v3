@@ -84,6 +84,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.Txtplano_baja);
+            this.panel3.Controls.Add(this.Btn_actualizar_cargue);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.Txtplano_alta);
             this.panel3.Controls.Add(this.Btn_Crear_plano);
@@ -159,7 +160,7 @@
             this.Btn_Crear_plano.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
             this.Btn_Crear_plano.IconColor = System.Drawing.Color.Gainsboro;
             this.Btn_Crear_plano.IconSize = 18;
-            this.Btn_Crear_plano.Location = new System.Drawing.Point(71, 431);
+            this.Btn_Crear_plano.Location = new System.Drawing.Point(95, 422);
             this.Btn_Crear_plano.Name = "Btn_Crear_plano";
             this.Btn_Crear_plano.Rotation = 0D;
             this.Btn_Crear_plano.Size = new System.Drawing.Size(111, 30);
@@ -479,10 +480,10 @@
             this.Btn_actualizar_cargue.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.Btn_actualizar_cargue.IconColor = System.Drawing.Color.Gainsboro;
             this.Btn_actualizar_cargue.IconSize = 16;
-            this.Btn_actualizar_cargue.Location = new System.Drawing.Point(578, 391);
+            this.Btn_actualizar_cargue.Location = new System.Drawing.Point(95, 458);
             this.Btn_actualizar_cargue.Name = "Btn_actualizar_cargue";
             this.Btn_actualizar_cargue.Rotation = 0D;
-            this.Btn_actualizar_cargue.Size = new System.Drawing.Size(98, 30);
+            this.Btn_actualizar_cargue.Size = new System.Drawing.Size(111, 30);
             this.Btn_actualizar_cargue.TabIndex = 72;
             this.Btn_actualizar_cargue.Text = "Actualizar";
             this.Btn_actualizar_cargue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -527,7 +528,6 @@
             this.ClientSize = new System.Drawing.Size(1149, 689);
             this.Controls.Add(this.Btn_actualizar_rta);
             this.Controls.Add(this.lbtotal);
-            this.Controls.Add(this.Btn_actualizar_cargue);
             this.Controls.Add(this.label36);
             this.Controls.Add(this.dgv_datos_plano);
             this.Controls.Add(this.Btn_busqueda);

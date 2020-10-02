@@ -20,7 +20,7 @@ namespace Usuarios_planta
         private Panel leftBorderBtn;
 
         public VoBo()
-        {
+        {           
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
@@ -101,13 +101,15 @@ namespace Usuarios_planta
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Estas seguro que deseas salir?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                Application.Exit();
+            //Form formulario = new Capa_presentacion.Login();
+            //formulario.Show();
+
         }
         private void BtnOrden_MouseHover(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
-            
-            
+            ActivateButton(sender, RGBColors.color1);          
         }
 
          private void BtnGiros_MouseHover_1(object sender, EventArgs e)
@@ -243,6 +245,11 @@ namespace Usuarios_planta
         private void Btnplanos_dia_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Planos_dia());
+        }
+
+        private void VoBo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

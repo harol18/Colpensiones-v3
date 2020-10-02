@@ -16,7 +16,7 @@ namespace Usuarios_planta.Capa_presentacion
 {
     public partial class Login : Form
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=Indr42020$;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         public Login()
         {
@@ -60,18 +60,11 @@ namespace Usuarios_planta.Capa_presentacion
                 Form formulario = new VoBo();
                 formulario.Show();
                 this.Hide();
-
-                
             }               
             else
                 MessageBox.Show("Credenciales de inicio de sesión incorrectas");
                 Txtusuario.Clear();
                 Txtcontraseña.Clear();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -88,6 +81,11 @@ namespace Usuarios_planta.Capa_presentacion
         private void Txtusuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8;// bloquea el ingreso de letras y el 8 corresponde a la barra espaciador
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

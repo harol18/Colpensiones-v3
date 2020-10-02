@@ -7,12 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
-using DocumentFormat.OpenXml.Spreadsheet;
 using System.Globalization;
 using Color = System.Drawing.Color;
 
@@ -20,7 +18,7 @@ namespace Usuarios_planta.Capa_presentacion
 {
     public partial class Formdia : Form
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds= new Comandos();
         dia_dia cmds_dia = new dia_dia();
@@ -115,12 +113,6 @@ namespace Usuarios_planta.Capa_presentacion
                                     Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, cmbresultado,
                                     cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
                                     TxtNomFuncionario);
-
-                cmds_dia.historico_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
-                                   Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtrtq, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit,
-                                   Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, cmbresultado,
-                                   cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
-                                   TxtNomFuncionario);
 
                 if (cmbdestino.Text == "Retanqueo" && cmbresultado.Text == "Negada")
                 {
@@ -368,13 +360,6 @@ namespace Usuarios_planta.Capa_presentacion
                                    cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
                                    TxtNomFuncionario);
 
-
-                cmds_dia.historico_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
-                                   Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtrtq, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit,
-                                   Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, cmbresultado,
-                                   cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
-                                   TxtNomFuncionario);
-
                 Btn_Actualizar.Enabled = true;
                 Btn_Guardar.Enabled = true;
                 this.Close();
@@ -471,6 +456,114 @@ namespace Usuarios_planta.Capa_presentacion
         {
             dgv_datos_plano.DataSource = null;
             cmds.busqueda_plano(dgv_datos_plano, Txtbusqueda);
+        }
+
+        private void Txtradicado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtcedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtafiliacion1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtafiliacion2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtscoring_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtconsecutivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtrtq_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtmonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtplazo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void Txtcuota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void TxtIDfuncionario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }

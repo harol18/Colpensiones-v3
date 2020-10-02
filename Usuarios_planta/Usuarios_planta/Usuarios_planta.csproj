@@ -128,7 +128,6 @@
     <Compile Include="Comandos.cs" />
     <Compile Include="Conversion.cs" />
     <Compile Include="dia_dia.cs" />
-    <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Capa presentacion\Cargue_archivos.resx">

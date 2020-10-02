@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbtipo = new System.Windows.Forms.ComboBox();
             this.Txtafiliacion2 = new System.Windows.Forms.TextBox();
             this.Btnbuscar = new System.Windows.Forms.PictureBox();
             this.Txtafiliacion1 = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Txtrtq = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -123,8 +125,6 @@
             this.Btn_busqueda = new System.Windows.Forms.PictureBox();
             this.Txtbusqueda = new System.Windows.Forms.TextBox();
             this.dgv_datos_plano = new System.Windows.Forms.DataGridView();
-            this.label35 = new System.Windows.Forms.Label();
-            this.cmbtipo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btnbuscar)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -175,6 +175,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
+            // cmbtipo
+            // 
+            this.cmbtipo.BackColor = System.Drawing.SystemColors.Menu;
+            this.cmbtipo.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbtipo.FormattingEnabled = true;
+            this.cmbtipo.Items.AddRange(new object[] {
+            "CC",
+            "CE"});
+            this.cmbtipo.Location = new System.Drawing.Point(762, 65);
+            this.cmbtipo.Name = "cmbtipo";
+            this.cmbtipo.Size = new System.Drawing.Size(86, 25);
+            this.cmbtipo.TabIndex = 33;
+            // 
             // Txtafiliacion2
             // 
             this.Txtafiliacion2.BackColor = System.Drawing.SystemColors.Menu;
@@ -187,6 +200,7 @@
             this.Txtafiliacion2.Size = new System.Drawing.Size(123, 26);
             this.Txtafiliacion2.TabIndex = 4;
             this.Txtafiliacion2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtafiliacion2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion2_KeyPress);
             this.Txtafiliacion2.Validated += new System.EventHandler(this.Txtafiliacion2_Validated);
             // 
             // Btnbuscar
@@ -214,6 +228,7 @@
             this.Txtafiliacion1.Size = new System.Drawing.Size(123, 26);
             this.Txtafiliacion1.TabIndex = 3;
             this.Txtafiliacion1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtafiliacion1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion1_KeyPress);
             // 
             // TxtEstado_cliente
             // 
@@ -239,6 +254,7 @@
             this.Txtcedula.TabIndex = 1;
             this.Txtcedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txtcedula.TextChanged += new System.EventHandler(this.Txtcedula_TextChanged);
+            this.Txtcedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtcedula_KeyPress);
             this.Txtcedula.Validated += new System.EventHandler(this.Txtcedula_Validated);
             // 
             // Txtnombre
@@ -251,6 +267,7 @@
             this.Txtnombre.Size = new System.Drawing.Size(382, 26);
             this.Txtnombre.TabIndex = 2;
             this.Txtnombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtnombre_KeyPress);
             // 
             // Txtradicado
             // 
@@ -262,6 +279,7 @@
             this.Txtradicado.Size = new System.Drawing.Size(108, 26);
             this.Txtradicado.TabIndex = 0;
             this.Txtradicado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtradicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtradicado_KeyPress);
             // 
             // label20
             // 
@@ -323,6 +341,16 @@
             this.label21.TabIndex = 13;
             this.label21.Text = "Afiliacion2";
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(641, 68);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(105, 17);
+            this.label35.TabIndex = 32;
+            this.label35.Text = "Tipo Documento";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Txtrtq);
@@ -376,6 +404,7 @@
             this.Txtrtq.Size = new System.Drawing.Size(156, 26);
             this.Txtrtq.TabIndex = 9;
             this.Txtrtq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtrtq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtrtq_KeyPress);
             // 
             // label25
             // 
@@ -398,6 +427,7 @@
             this.Txtconsecutivo.Size = new System.Drawing.Size(102, 26);
             this.Txtconsecutivo.TabIndex = 6;
             this.Txtconsecutivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtconsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtconsecutivo_KeyPress);
             // 
             // cmbdestino
             // 
@@ -570,6 +600,7 @@
             this.Txtplazo.Size = new System.Drawing.Size(70, 26);
             this.Txtplazo.TabIndex = 10;
             this.Txtplazo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtplazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtplazo_KeyPress);
             // 
             // Txtmonto
             // 
@@ -582,6 +613,7 @@
             this.Txtmonto.Size = new System.Drawing.Size(110, 26);
             this.Txtmonto.TabIndex = 9;
             this.Txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtmonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtmonto_KeyPress);
             this.Txtmonto.Validated += new System.EventHandler(this.Txtmonto_Validated);
             // 
             // Txtcuota
@@ -596,6 +628,7 @@
             this.Txtcuota.TabIndex = 11;
             this.Txtcuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txtcuota.TextChanged += new System.EventHandler(this.Txtcuota_TextChanged);
+            this.Txtcuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtcuota_KeyPress);
             this.Txtcuota.Validated += new System.EventHandler(this.Txtcuota_Validated);
             // 
             // Txtscoring
@@ -609,6 +642,7 @@
             this.Txtscoring.Size = new System.Drawing.Size(156, 26);
             this.Txtscoring.TabIndex = 5;
             this.Txtscoring.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtscoring.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtscoring_KeyPress);
             this.Txtscoring.Validated += new System.EventHandler(this.Txtscoring_Validated);
             // 
             // cmbfuerza
@@ -909,6 +943,7 @@
             this.TxtIDfuncionario.TabIndex = 22;
             this.TxtIDfuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtIDfuncionario.TextChanged += new System.EventHandler(this.TxtIDfuncionario_TextChanged);
+            this.TxtIDfuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIDfuncionario_KeyPress);
             // 
             // cmbcargue
             // 
@@ -1299,29 +1334,6 @@
             this.dgv_datos_plano.Name = "dgv_datos_plano";
             this.dgv_datos_plano.Size = new System.Drawing.Size(342, 466);
             this.dgv_datos_plano.TabIndex = 192;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(641, 68);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(105, 17);
-            this.label35.TabIndex = 32;
-            this.label35.Text = "Tipo Documento";
-            // 
-            // cmbtipo
-            // 
-            this.cmbtipo.BackColor = System.Drawing.SystemColors.Menu;
-            this.cmbtipo.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbtipo.FormattingEnabled = true;
-            this.cmbtipo.Items.AddRange(new object[] {
-            "CC",
-            "CE"});
-            this.cmbtipo.Location = new System.Drawing.Point(762, 65);
-            this.cmbtipo.Name = "cmbtipo";
-            this.cmbtipo.Size = new System.Drawing.Size(86, 25);
-            this.cmbtipo.TabIndex = 33;
             // 
             // Formdia
             // 

@@ -510,7 +510,6 @@ C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuario
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\bin\Release\MySql.Data.xml
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\bin\Release\SpreadsheetLight.xml
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\bin\Release\System.IO.Packaging.xml
-C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.csprojAssemblyReference.cache
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.exe.config
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Interop.OutlookSocialProvider.dll
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Interop.SharePointProvider.dll
@@ -529,3 +528,4 @@ C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuario
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.csproj.CopyComplete
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.exe
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.pdb
+C:\Users\BBVA\Desktop\Desarrollo c# fabrica\Colpensiones\Colpensiones v3\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.csprojAssemblyReference.cache

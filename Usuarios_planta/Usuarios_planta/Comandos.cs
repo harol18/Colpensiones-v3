@@ -15,7 +15,9 @@ namespace Usuarios_planta
 {
     class Comandos
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=Indr42020$;database=dblibranza;port=3306;persistsecurityinfo=True;");
+       
 
 
         public void Insertar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
@@ -27,8 +29,7 @@ namespace Usuarios_planta
             con.Open(); 
             MySqlCommand cmd = new MySqlCommand("insertar_colp", con);
             MySqlTransaction myTrans; // Iniciar una transacción local 
-            myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente 
-
+            myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente
             try
             {
 
@@ -70,21 +71,10 @@ namespace Usuarios_planta
                 myTrans.Commit();
                 MessageBox.Show("Información Almacenada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                try
-                {
-                    myTrans.Rollback();
-                }
-                catch (MySqlException ex)
-                {
-                    if (myTrans.Connection != null)
-                    {
-                        MessageBox.Show("Se encontró una excepción de tipo" + ex.GetType() + " al intentar revertir la transacción..");
-                    }
-                }
-                MessageBox.Show("Se encontró una excepción de tipo " + e.GetType() + " al insertar los datos.");
-                MessageBox.Show("Ninguno de los registros se escribió en la base de datos.");
+                myTrans.Rollback();                
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -143,22 +133,10 @@ namespace Usuarios_planta
                 myTrans.Commit();
                 MessageBox.Show("Información Actualizada con Éxito","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                try
-                {
-                    myTrans.Rollback();
-                }
-                catch (MySqlException ex)
-                {
-                    if (myTrans.Connection != null)
-                    {
-                        
-                        MessageBox.Show("Se encontró una excepción de tipo" + ex.GetType() + " al intentar revertir la transacción..");
-                    }
-                }
-                MessageBox.Show("Se encontró una excepción de tipo " + e.GetType() + " al insertar los datos.");
-                MessageBox.Show("Ninguno de los registros se escribió en la base de datos.");
+                myTrans.Rollback();
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -226,7 +204,6 @@ namespace Usuarios_planta
                     cmbdestino.Text = "CPK Libranza";
                     Txtcedula.Text = null;
                     Txtnombre.Text = null; 
-                    TxtEstado_cliente.Text = null;
                     Txtafiliacion1.Text = null;
                     Txtafiliacion2.Text = null;
                     cmbtipo.Text = null;
@@ -262,79 +239,7 @@ namespace Usuarios_planta
             }
 
         }
-
-        public void historico_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
-                                   ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
-                                   TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue,
-                                   DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                   TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
-        {
-
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("historico_colp", con);
-            MySqlTransaction myTrans; // Iniciar una transacción local 
-            myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente 
-            try
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Radicado", Txtradicado.Text);
-                cmd.Parameters.AddWithValue("@_Cedula", Txtcedula.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Cliente", Txtnombre.Text);
-                cmd.Parameters.AddWithValue("@_Estado_Cliente", TxtEstado_cliente.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion1", Txtafiliacion1.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion2", Txtafiliacion2.Text);
-                cmd.Parameters.AddWithValue("@_Tipo_Documento", cmbtipo.Text);
-                cmd.Parameters.AddWithValue("@_Scoring", Txtscoring.Text);
-                cmd.Parameters.AddWithValue("@_Consecutivo", Txtconsecutivo.Text);
-                cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbfuerza.Text);
-                cmd.Parameters.AddWithValue("@_Destino", cmbdestino.Text);
-                cmd.Parameters.AddWithValue("@_Monto_Aprobado", Txtmonto.Text);
-                cmd.Parameters.AddWithValue("@_Plazo_Aprobado", Txtplazo.Text);
-                cmd.Parameters.AddWithValue("@_Cuota", string.Format("{0:#}", double.Parse(Txtcuota.Text))); // se formate el numero para que no vaya con el . de la separacion de miles
-                cmd.Parameters.AddWithValue("@_Total", Txttotal.Text);
-                cmd.Parameters.AddWithValue("@_Pagare", Txtpagare.Text);
-                cmd.Parameters.AddWithValue("@_Nit", Txtnit.Text);
-                cmd.Parameters.AddWithValue("@_Entidades", Txtentidad.Text);
-                cmd.Parameters.AddWithValue("@_Cuota_Letras", Txtcuota_letras.Text);
-                cmd.Parameters.AddWithValue("@_Total_Letras", Txttotal_letras.Text);
-                cmd.Parameters.AddWithValue("@_Estado_operacion", cmbestado.Text);
-                cmd.Parameters.AddWithValue("@_Estado_cargue", cmbcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_Cargue", dtpcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtpfecha_desembolso.Text);
-                cmd.Parameters.AddWithValue("@_Respuesta_Cargue", cmbresultado.Text);
-                cmd.Parameters.AddWithValue("@_Causal_Rechazo", cmbrechazo.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_respuesta", dtpfecha_rpta.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Dia", Txtplano_dia.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text); 
-                cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
-                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
-                cmd.Parameters.AddWithValue("@_Id_Funcionario", TxtIDfuncionario.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", TxtNomFuncionario.Text);
-                cmd.ExecuteNonQuery();
-                myTrans.Commit();
-            }
-            catch (Exception e)
-            {
-                try
-                {
-                    myTrans.Rollback();
-                }
-                catch (MySqlException ex)
-                {
-                    if (myTrans.Connection != null)
-                    {
-                        MessageBox.Show("Se encontró una excepción de tipo" + ex.GetType() + " al intentar revertir la transacción..");
-                    }
-                }
-                MessageBox.Show("Se encontró una excepción de tipo " + e.GetType() + " al insertar los datos.");
-                MessageBox.Show("Ninguno de los registros se escribió en la base de datos.");
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
+      
         public void buscar_negadosckl(DateTimePicker dtpproximo, DataGridView dataGridView2)
         {
             try
@@ -457,7 +362,6 @@ namespace Usuarios_planta
 
         public void planos_cargue(DataGridView dgv_altas, TextBox Txtplano_alta)
         {
-
             try
             {
                 con.Open();
@@ -490,7 +394,6 @@ namespace Usuarios_planta
         {
             try
             {
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("cargue_contabilizados", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -518,7 +421,6 @@ namespace Usuarios_planta
 
         public void actualizar_cargueckl(DataGridView dgv_altas,TextBox Txtplano_alta)
         {
-
             try
             {
                 con.Open();
@@ -547,7 +449,6 @@ namespace Usuarios_planta
 
         public void actualizar_rtackl(DataGridView dgv_datos_plano)
         {
-
             try
             {
                 con.Open();
@@ -615,6 +516,29 @@ namespace Usuarios_planta
             }
             catch (Exception ex)
             {             
+                MessageBox.Show("", ex.ToString());
+                con.Close();
+                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void jueves_cklibranza(DataGridView dgv_informes, DateTimePicker dtpinicio, DateTimePicker dtpfinal)
+        {
+            try
+            {
+                con.Open();
+                DataTable dt = new DataTable();
+                MySqlCommand cmd = new MySqlCommand("jueves_cklibranza", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@_fecha_inicio", dtpinicio.Text);
+                cmd.Parameters.AddWithValue("@_fecha_final", dtpfinal.Text);
+                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
+                registro.Fill(dt);
+                dgv_informes.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("", ex.ToString());
                 con.Close();
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);

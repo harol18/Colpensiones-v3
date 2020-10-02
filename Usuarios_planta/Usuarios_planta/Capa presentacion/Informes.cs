@@ -16,7 +16,7 @@ namespace Usuarios_planta.Formularios
     public partial class Informes : Form
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds = new Comandos();
         dia_dia cmds_dia = new dia_dia();
@@ -26,9 +26,62 @@ namespace Usuarios_planta.Formularios
             InitializeComponent();
         }
 
+        private void cmbinformes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbinformes.Text== "Informe Jueves Cpk Libranza")
+            {
+
+            }
+        }
+
         private void Btn_busqueda_Click(object sender, EventArgs e)
         {
-            cmds_dia.busqueda_plano(dgv_datos_plano, Txtbusqueda);
+            cmds.jueves_cklibranza(dgv_informes,dtpinicio,dtpfinal);
+        }
+
+        private void Btn_Crear_plano_Click(object sender, EventArgs e)
+        {
+            //Esta línea de código crea un archivo de texto para la exportación de datos.
+            StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + "archivo_jueves.txt");
+            //StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + ".txt");
+            try
+            {
+                string sLine = "";
+                //Este bucle for recorre cada fila de la tabla
+                for (int r = 0; r <= dgv_informes.Rows.Count - 1; r++)
+                {
+                    //Este bucle for recorre cada columna y el número de fila
+                    //se pasa desde el bucle for arriba.
+                    for (int c = 0; c <= dgv_informes.Columns.Count - 1; c++)
+                    {
+                        sLine = sLine + dgv_informes.Rows[r].Cells[c].Value;
+                        if (c != dgv_informes.Columns.Count - 1)
+                        {
+                            //Una coma se agrega como delimitador de texto para
+                            //para separar cada campo en el archivo de texto.
+                            //Puede elegir otro carácter como delimitador, para este caso no se pone delimitador dado
+                            //que el plano va toda la informacion pegada sin espacios ni caracteres.
+                            sLine = sLine + "|";
+                        }
+                    }
+                    //El texto exportado se escribe en el archivo de texto, una línea a la vez.
+                    file.WriteLine(sLine);
+                    sLine = "";
+                }
+
+                file.Close();
+                MessageBox.Show("Ok archivo plano creado.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                file.Close();
+            }
+        }
+
+        private void Informes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

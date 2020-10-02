@@ -66,7 +66,7 @@
             this.Txtusuario.Size = new System.Drawing.Size(162, 24);
             this.Txtusuario.TabIndex = 8;
             this.Txtusuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtusuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtusuario_KeyPress);
+            
             // 
             // label2
             // 
@@ -107,7 +107,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            
             // 
             // button2
             // 

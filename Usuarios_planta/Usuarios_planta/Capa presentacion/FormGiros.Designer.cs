@@ -34,8 +34,8 @@
             this.Txtconsecutivo = new System.Windows.Forms.TextBox();
             this.cmbdestino = new System.Windows.Forms.ComboBox();
             this.Txtentidad = new System.Windows.Forms.TextBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btncopy_pagare = new System.Windows.Forms.PictureBox();
             this.Txtpagare = new System.Windows.Forms.TextBox();
@@ -76,7 +76,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.Txtafiliacion2 = new System.Windows.Forms.TextBox();
             this.Btnbuscar = new System.Windows.Forms.PictureBox();
-            this.TxtEstado_cliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbafiliacion = new System.Windows.Forms.Label();
@@ -125,9 +124,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.TxtEstado_cliente = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncopy_pagare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btncopy)).BeginInit();
@@ -203,6 +203,7 @@
             this.Txtconsecutivo.Size = new System.Drawing.Size(102, 26);
             this.Txtconsecutivo.TabIndex = 6;
             this.Txtconsecutivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtconsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtconsecutivo_KeyPress);
             // 
             // cmbdestino
             // 
@@ -226,19 +227,7 @@
             this.Txtentidad.Size = new System.Drawing.Size(289, 26);
             this.Txtentidad.TabIndex = 12;
             this.Txtentidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.SystemColors.Menu;
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
-            this.pictureBox8.Location = new System.Drawing.Point(785, 62);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(20, 24);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 156;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.Txtentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtentidad_KeyPress);
             // 
             // pictureBox7
             // 
@@ -252,6 +241,19 @@
             this.pictureBox7.TabIndex = 155;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.SystemColors.Menu;
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
+            this.pictureBox8.Location = new System.Drawing.Point(785, 62);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(20, 24);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 156;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox5
             // 
@@ -383,6 +385,7 @@
             this.Txtplazo.Size = new System.Drawing.Size(89, 26);
             this.Txtplazo.TabIndex = 10;
             this.Txtplazo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtplazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtplazo_KeyPress);
             // 
             // Txtmonto
             // 
@@ -395,6 +398,7 @@
             this.Txtmonto.Size = new System.Drawing.Size(128, 26);
             this.Txtmonto.TabIndex = 9;
             this.Txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtmonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtmonto_KeyPress);
             this.Txtmonto.Validated += new System.EventHandler(this.Txtmonto_Validated);
             // 
             // Txtcuota
@@ -409,6 +413,7 @@
             this.Txtcuota.TabIndex = 11;
             this.Txtcuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txtcuota.TextChanged += new System.EventHandler(this.Txtcuota_TextChanged);
+            this.Txtcuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtcuota_KeyPress);
             this.Txtcuota.Validated += new System.EventHandler(this.Txtcuota_Validated);
             // 
             // Txtscoring
@@ -422,6 +427,7 @@
             this.Txtscoring.Size = new System.Drawing.Size(156, 26);
             this.Txtscoring.TabIndex = 5;
             this.Txtscoring.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtscoring.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtscoring_KeyPress);
             this.Txtscoring.Validated += new System.EventHandler(this.Txtscoring_Validated);
             // 
             // cmbfuerza
@@ -578,6 +584,7 @@
             this.Txtradicado.Size = new System.Drawing.Size(108, 26);
             this.Txtradicado.TabIndex = 0;
             this.Txtradicado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtradicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtradicado_KeyPress);
             // 
             // Txtafiliacion1
             // 
@@ -591,6 +598,7 @@
             this.Txtafiliacion1.Size = new System.Drawing.Size(123, 26);
             this.Txtafiliacion1.TabIndex = 3;
             this.Txtafiliacion1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtafiliacion1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion1_KeyPress);
             // 
             // Txtnombre
             // 
@@ -602,6 +610,7 @@
             this.Txtnombre.Size = new System.Drawing.Size(341, 26);
             this.Txtnombre.TabIndex = 2;
             this.Txtnombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtnombre_KeyPress);
             // 
             // Txtcedula
             // 
@@ -614,6 +623,7 @@
             this.Txtcedula.TabIndex = 1;
             this.Txtcedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txtcedula.TextChanged += new System.EventHandler(this.Txtcedula_TextChanged);
+            this.Txtcedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtcedula_KeyPress);
             this.Txtcedula.Validated += new System.EventHandler(this.Txtcedula_Validated);
             // 
             // label1
@@ -658,12 +668,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TxtEstado_cliente);
             this.groupBox1.Controls.Add(this.cmbtipo);
             this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.Txtafiliacion2);
             this.groupBox1.Controls.Add(this.Btnbuscar);
             this.groupBox1.Controls.Add(this.Txtafiliacion1);
-            this.groupBox1.Controls.Add(this.TxtEstado_cliente);
             this.groupBox1.Controls.Add(this.Txtcedula);
             this.groupBox1.Controls.Add(this.Txtnombre);
             this.groupBox1.Controls.Add(this.Txtradicado);
@@ -716,6 +726,7 @@
             this.Txtafiliacion2.Size = new System.Drawing.Size(123, 26);
             this.Txtafiliacion2.TabIndex = 4;
             this.Txtafiliacion2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtafiliacion2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion2_KeyPress);
             this.Txtafiliacion2.Validated += new System.EventHandler(this.Txtafiliacion2_Validated);
             // 
             // Btnbuscar
@@ -730,19 +741,6 @@
             this.Btnbuscar.TabIndex = 30;
             this.Btnbuscar.TabStop = false;
             this.Btnbuscar.Click += new System.EventHandler(this.Btnbuscar_Click);
-            // 
-            // TxtEstado_cliente
-            // 
-            this.TxtEstado_cliente.BackColor = System.Drawing.SystemColors.Menu;
-            this.TxtEstado_cliente.Enabled = false;
-            this.TxtEstado_cliente.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEstado_cliente.Location = new System.Drawing.Point(76, 64);
-            this.TxtEstado_cliente.Multiline = true;
-            this.TxtEstado_cliente.Name = "TxtEstado_cliente";
-            this.TxtEstado_cliente.Size = new System.Drawing.Size(108, 26);
-            this.TxtEstado_cliente.TabIndex = 32;
-            this.TxtEstado_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtEstado_cliente.TextChanged += new System.EventHandler(this.TxtEstado_cliente_TextChanged);
             // 
             // label3
             // 
@@ -975,6 +973,7 @@
             this.TxtIDfuncionario.TabIndex = 22;
             this.TxtIDfuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtIDfuncionario.TextChanged += new System.EventHandler(this.TxtIDfuncionario_TextChanged);
+            this.TxtIDfuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIDfuncionario_KeyPress);
             // 
             // cmbcargue
             // 
@@ -1221,7 +1220,7 @@
             this.Btn_Actualizar.TabIndex = 24;
             this.Btn_Actualizar.Text = "Actualizar";
             this.Btn_Actualizar.UseVisualStyleBackColor = false;
-            this.Btn_Actualizar.Click += new System.EventHandler(this.Btn_Actualizar_Click_1);
+            this.Btn_Actualizar.Click += new System.EventHandler(this.Btn_Actualizar_Click);
             this.Btn_Actualizar.MouseHover += new System.EventHandler(this.Btn_Actualizar_MouseHover);
             // 
             // Btn_Guardar
@@ -1316,6 +1315,20 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // TxtEstado_cliente
+            // 
+            this.TxtEstado_cliente.BackColor = System.Drawing.SystemColors.Menu;
+            this.TxtEstado_cliente.Enabled = false;
+            this.TxtEstado_cliente.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEstado_cliente.Location = new System.Drawing.Point(76, 64);
+            this.TxtEstado_cliente.MaxLength = 20;
+            this.TxtEstado_cliente.Multiline = true;
+            this.TxtEstado_cliente.Name = "TxtEstado_cliente";
+            this.TxtEstado_cliente.ShortcutsEnabled = false;
+            this.TxtEstado_cliente.Size = new System.Drawing.Size(108, 26);
+            this.TxtEstado_cliente.TabIndex = 36;
+            this.TxtEstado_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FormGiros
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1342,8 +1355,8 @@
             this.Load += new System.EventHandler(this.FormGiros_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncopy_pagare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btncopy)).EndInit();
@@ -1426,7 +1439,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ErrorProvider epError;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtEstado_cliente;
         private System.Windows.Forms.PictureBox Btnbuscar;
         private System.Windows.Forms.PictureBox Btncopy1;
         private System.Windows.Forms.PictureBox Btncopy;
@@ -1467,5 +1479,6 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.ComboBox cmbtipo;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox TxtEstado_cliente;
     }
 }

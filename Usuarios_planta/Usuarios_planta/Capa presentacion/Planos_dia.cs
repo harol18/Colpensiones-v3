@@ -14,7 +14,7 @@ namespace Usuarios_planta.Capa_presentacion
 {
     public partial class Planos_dia : Form
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         dia_dia cmds_dia = new dia_dia();
 
@@ -102,8 +102,8 @@ namespace Usuarios_planta.Capa_presentacion
                 if (ch_plano_alta.Checked)
                 {
                     //Esta línea de código crea un archivo de texto para la exportación de datos.
-                    //StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + Txtplano_alta.Text + ".txt");
-                    StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + Txtplano_alta.Text + ".txt");
+                    StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + Txtplano_alta.Text + ".txt");
+                    //StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + Txtplano_alta.Text + ".txt");
                     try
                     {
                         string sLine = "";
@@ -140,8 +140,8 @@ namespace Usuarios_planta.Capa_presentacion
                 else if (ch_plano_baja.Checked)
                 {
                     //Esta línea de código crea un archivo de texto para la exportación de datos.
-                    //StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + Txtplano_baja.Text + ".txt");
-                    StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + Txtplano_baja.Text + ".txt");
+                    StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + Txtplano_baja.Text + ".txt");
+                    //StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + Txtplano_baja.Text + ".txt");
                     try
                     {
                         string sLine = "";

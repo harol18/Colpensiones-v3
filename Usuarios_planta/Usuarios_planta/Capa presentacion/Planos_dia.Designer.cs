@@ -160,7 +160,7 @@
             this.Btn_actualizar_cargue.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.Btn_actualizar_cargue.IconColor = System.Drawing.Color.Gainsboro;
             this.Btn_actualizar_cargue.IconSize = 16;
-            this.Btn_actualizar_cargue.Location = new System.Drawing.Point(70, 455);
+            this.Btn_actualizar_cargue.Location = new System.Drawing.Point(89, 438);
             this.Btn_actualizar_cargue.Name = "Btn_actualizar_cargue";
             this.Btn_actualizar_cargue.Rotation = 0D;
             this.Btn_actualizar_cargue.Size = new System.Drawing.Size(112, 30);
@@ -216,7 +216,7 @@
             this.Btn_Crear_plano.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
             this.Btn_Crear_plano.IconColor = System.Drawing.Color.Gainsboro;
             this.Btn_Crear_plano.IconSize = 18;
-            this.Btn_Crear_plano.Location = new System.Drawing.Point(71, 419);
+            this.Btn_Crear_plano.Location = new System.Drawing.Point(90, 402);
             this.Btn_Crear_plano.Name = "Btn_Crear_plano";
             this.Btn_Crear_plano.Rotation = 0D;
             this.Btn_Crear_plano.Size = new System.Drawing.Size(111, 30);
