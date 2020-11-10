@@ -103,10 +103,8 @@ namespace Usuarios_planta
         {
             if (MessageBox.Show("Estas seguro que deseas salir?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 Application.Exit();
-            //Form formulario = new Capa_presentacion.Login();
-            //formulario.Show();
-
         }
+
         private void BtnOrden_MouseHover(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);          
@@ -114,14 +112,12 @@ namespace Usuarios_planta
 
          private void BtnGiros_MouseHover_1(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            
+            ActivateButton(sender, RGBColors.color2);            
         }
 
         private void BtnChequesCF_MouseHover(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            
+            ActivateButton(sender, RGBColors.color2);            
         }
 
         private void BtnSalir_MouseHover(object sender, EventArgs e)
@@ -148,8 +144,7 @@ namespace Usuarios_planta
 
         private void BtnInformes_MouseHover(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
-            
+            ActivateButton(sender, RGBColors.color3);            
         }
 
         private void BtnColpensiones_Click(object sender, EventArgs e)
@@ -159,8 +154,7 @@ namespace Usuarios_planta
 
         private void BtnColpensiones_MouseHover(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            
+            ActivateButton(sender, RGBColors.color2);            
         }
 
         private void Btncklb_Click(object sender, EventArgs e)
@@ -198,10 +192,8 @@ namespace Usuarios_planta
         }
 
         private void BtnCrear_planos_Click(object sender, EventArgs e)
-        {
-            
+        {            
             showSubMenu(panel_planos);
-
         }
 
         private void BtnCrear_planos_MouseHover(object sender, EventArgs e)
@@ -245,11 +237,6 @@ namespace Usuarios_planta
         private void Btnplanos_dia_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Planos_dia());
-        }
-
-        private void VoBo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

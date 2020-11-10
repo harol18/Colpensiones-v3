@@ -18,9 +18,10 @@ namespace Usuarios_planta.Capa_presentacion
 {
     public partial class Formdia : Form
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
-        Comandos cmds= new Comandos();
+
+        Comandos cmds = new Comandos();
         dia_dia cmds_dia = new dia_dia();
         Conversion c = new Conversion();
         private Button currentBtn;
@@ -103,54 +104,13 @@ namespace Usuarios_planta.Capa_presentacion
             formulario.Show();
         }
 
-        private void Btn_Actualizar_Click(object sender, EventArgs e)
-        {
-            BorrarMensajeError();
-            if (validar())
-            {
-                cmds_dia.actualizar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
-                                    Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtrtq,Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit,
-                                    Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, cmbresultado,
-                                    cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
-                                    TxtNomFuncionario);
-
-                if (cmbdestino.Text == "Retanqueo" && cmbresultado.Text == "Negada")
-                {
-                    cmds_dia.rescate_rtq(Txtafiliacion2,Txtcedula,Txtnit,Txtcuota,Txtplazo,Txtpagare,Txtplano_pre,Txtplano_dia,dtpcargue,
-                                         TxtIDfuncionario, TxtNomFuncionario);
-                }
-
-                if (cmbdestino.Text == "CPK Consumo RTQ" && cmbresultado.Text == "Negada")
-                {
-                    cmds_dia.rescate_rtq(Txtafiliacion2, Txtcedula, Txtnit, Txtcuota, Txtplazo, Txtpagare, Txtplano_pre, Txtplano_dia, dtpcargue,
-                                         TxtIDfuncionario, TxtNomFuncionario);
-                }
-
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = true;
-                this.Close();
-                Form formulario = new Formdia();
-                formulario.Show();
-            }
-        }
-
         private void Btnbuscar_Click(object sender, EventArgs e)
         {
             cmds_dia.buscar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo, Txtscoring, Txtconsecutivo,
                              cmbfuerza, cmbdestino, Txtrtq, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtcuota_letras,
                              Txttotal_letras, cmbestado, cmbcargue, dtpcargue, cmbresultado, cmbrechazo, dtpfecha_rpta,
-                             Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario, TxtNomFuncionario);
+                             Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios);
 
-            if (Txtnombre.TextLength == 0)
-            {                
-                Btn_Actualizar.Enabled = false;
-                Btn_Guardar.Enabled = true;
-            }
-            else
-            {
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = false;
-            }
         }
 
         private void Txtcedula_TextChanged(object sender, EventArgs e)
@@ -201,20 +161,6 @@ namespace Usuarios_planta.Capa_presentacion
             cmbrechazo.DisplayMember = "codigo";
             cmbrechazo.DataSource = dt;
         }
-
-        private void TxtIDfuncionario_TextChanged(object sender, EventArgs e)
-        {
-            MySqlCommand comando = new MySqlCommand("SELECT * FROM tf_usuarios WHERE Identificacion = @Identificacion ", con);
-            comando.Parameters.AddWithValue("@Identificacion", TxtIDfuncionario.Text);
-            con.Open();
-            MySqlDataReader registro = comando.ExecuteReader();
-            if (registro.Read())
-            {
-                TxtNomFuncionario.Text = registro["Nombre"].ToString();
-            }
-            con.Close();
-        }
-
         private void Txttotal_TextChanged(object sender, EventArgs e)
         {
             Txttotal_letras.Text = c.enletras(Txttotal.Text).ToUpper() + " PESOS";
@@ -301,12 +247,7 @@ namespace Usuarios_planta.Capa_presentacion
             {
                 ok = false;
                 epError.SetError(Txtplazo, "Debes digitar Plazo");
-            }
-            if (TxtIDfuncionario.Text == "")
-            {
-                ok = false;
-                epError.SetError(TxtIDfuncionario, "Debes digitar N° Identificación");
-            }
+            }            
             return ok;
         }
 
@@ -316,8 +257,7 @@ namespace Usuarios_planta.Capa_presentacion
             epError.SetError(Txtafiliacion2, "");
             epError.SetError(Txtscoring, "");
             epError.SetError(Txtmonto, "");
-            epError.SetError(Txtplazo, "");
-            epError.SetError(TxtIDfuncionario, "");
+            epError.SetError(Txtplazo, "");            
         }
 
         private void Txtcuota_Validated(object sender, EventArgs e)
@@ -347,6 +287,7 @@ namespace Usuarios_planta.Capa_presentacion
         private void Txtcedula_Validated(object sender, EventArgs e)
         {
             cmds_dia.buscar_fallecido(Txtcedula, TxtEstado_cliente);
+            
         }
 
         private void Btn_Guardar_Click(object sender, EventArgs e)
@@ -357,11 +298,7 @@ namespace Usuarios_planta.Capa_presentacion
                 cmds_dia.Insertar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
                                    Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtrtq, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit,
                                    Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, cmbresultado,
-                                   cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
-                                   TxtNomFuncionario);
-
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = true;
+                                   cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios);
                 this.Close();
                 Form formulario = new Formdia();
                 formulario.Show();
@@ -564,6 +501,15 @@ namespace Usuarios_planta.Capa_presentacion
                 e.Handled = true;
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void cmbdestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cmbdestino.Text== "Retanqueo" || cmbdestino.Text == "CPK Consumo RTQ")
+            {
+                cmds_dia.buscar_recaudo(Txtcedula);
+            }          
         }
     }
 }

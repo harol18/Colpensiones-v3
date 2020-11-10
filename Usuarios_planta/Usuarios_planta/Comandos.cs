@@ -16,15 +16,15 @@ namespace Usuarios_planta
     class Comandos
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=Indr42020$;database=dblibranza;port=3306;persistsecurityinfo=True;");
-       
+        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+
 
 
         public void Insertar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
                                   ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
                                   TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue,
                                   DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                  TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
+                                  TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios)
         {
             con.Open(); 
             MySqlCommand cmd = new MySqlCommand("insertar_colp", con);
@@ -65,8 +65,8 @@ namespace Usuarios_planta
                 cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text);
                 cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
                 cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
-                cmd.Parameters.AddWithValue("@_Id_Funcionario", TxtIDfuncionario.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", TxtNomFuncionario.Text);
+                cmd.Parameters.AddWithValue("@_Id_Funcionario", usuario.Identificacion);
+                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", usuario.Nombre);
                 cmd.ExecuteNonQuery();
                 myTrans.Commit();
                 MessageBox.Show("Información Almacenada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -82,73 +82,11 @@ namespace Usuarios_planta
             }
         }
 
-        public void actualizar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
-                                    ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
-                                    TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue,
-                                    DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                    TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
-        {
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("actualizar_colp", con);
-            MySqlTransaction myTrans; // Iniciar una transacción local 
-            myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente 
-
-            try
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Radicado", Txtradicado.Text);
-                cmd.Parameters.AddWithValue("@_Cedula", Txtcedula.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Cliente", Txtnombre.Text);
-                cmd.Parameters.AddWithValue("@_Estado_Cliente", TxtEstado_cliente.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion1", Txtafiliacion1.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion2", Txtafiliacion2.Text);
-                cmd.Parameters.AddWithValue("@_Tipo_Documento", cmbtipo.Text);
-                cmd.Parameters.AddWithValue("@_Scoring", Txtscoring.Text);
-                cmd.Parameters.AddWithValue("@_Consecutivo", Txtconsecutivo.Text);
-                cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbfuerza.Text);
-                cmd.Parameters.AddWithValue("@_Destino", cmbdestino.Text);
-                cmd.Parameters.AddWithValue("@_Monto_Aprobado", Txtmonto.Text);
-                cmd.Parameters.AddWithValue("@_Plazo_Aprobado", Txtplazo.Text);
-                cmd.Parameters.AddWithValue("@_Cuota", string.Format("{0:#}", double.Parse(Txtcuota.Text))); // se formate el numero para que no vaya con el . de la separacion de miles
-                cmd.Parameters.AddWithValue("@_Total", Txttotal.Text);
-                cmd.Parameters.AddWithValue("@_Pagare", Txtpagare.Text);
-                cmd.Parameters.AddWithValue("@_Nit", Txtnit.Text);
-                cmd.Parameters.AddWithValue("@_Entidades", Txtentidad.Text);
-                cmd.Parameters.AddWithValue("@_Cuota_Letras", Txtcuota_letras.Text);
-                cmd.Parameters.AddWithValue("@_Total_Letras", Txttotal_letras.Text);
-                cmd.Parameters.AddWithValue("@_Estado_operacion", cmbestado.Text);
-                cmd.Parameters.AddWithValue("@_Estado_cargue", cmbcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_Cargue", dtpcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtpfecha_desembolso.Text);
-                cmd.Parameters.AddWithValue("@_Respuesta_Cargue", cmbresultado.Text);
-                cmd.Parameters.AddWithValue("@_Causal_Rechazo", cmbrechazo.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_respuesta", dtpfecha_rpta.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Dia", Txtplano_dia.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text);
-                cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
-                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
-                cmd.Parameters.AddWithValue("@_Id_Funcionario", TxtIDfuncionario.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", TxtNomFuncionario.Text);
-                cmd.ExecuteNonQuery();
-                myTrans.Commit();
-                MessageBox.Show("Información Actualizada con Éxito","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {
-                myTrans.Rollback();
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
         public void buscar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
                                 ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
                                 TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue, 
                                 DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                TextBox Txtplano_dia,TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
+                                TextBox Txtplano_dia,TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios)
         {          
 
             try
@@ -190,9 +128,7 @@ namespace Usuarios_planta
                     Txtplano_dia.Text = registro["Plano_Dia"].ToString();
                     Txtplano_pre.Text = registro["Plano_Pre"].ToString();
                     TxtN_Plano.Text = registro["plano"].ToString();
-                    Txtcomentarios.Text = registro["Comentarios"].ToString();
-                    TxtIDfuncionario.Text = registro["Id_Funcionario"].ToString();
-                    TxtNomFuncionario.Text = registro["Nombre_Funcionario"].ToString();
+                    Txtcomentarios.Text = registro["Comentarios"].ToString();                    
                     con.Close();
                 }else
                 {
@@ -225,9 +161,7 @@ namespace Usuarios_planta
                     Txtplano_dia.Text = null;
                     Txtplano_pre.Text = null;
                     TxtN_Plano.Text = null;
-                    Txtcomentarios.Text = null;
-                    TxtIDfuncionario.Text = null;
-                    TxtNomFuncionario.Text = null;
+                    Txtcomentarios.Text = null;                    
                 }
                 con.Close();
             }

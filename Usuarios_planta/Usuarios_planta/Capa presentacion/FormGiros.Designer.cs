@@ -72,6 +72,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtEstado_cliente = new System.Windows.Forms.TextBox();
             this.cmbtipo = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.Txtafiliacion2 = new System.Windows.Forms.TextBox();
@@ -80,10 +81,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbafiliacion = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.img_pre = new System.Windows.Forms.PictureBox();
-            this.img_dia = new System.Windows.Forms.PictureBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.dtpfecha_desembolso = new System.Windows.Forms.DateTimePicker();
@@ -91,8 +88,6 @@
             this.TxtN_Plano = new System.Windows.Forms.TextBox();
             this.cmbestado = new System.Windows.Forms.ComboBox();
             this.Btncopy2 = new System.Windows.Forms.PictureBox();
-            this.TxtNomFuncionario = new System.Windows.Forms.TextBox();
-            this.TxtIDfuncionario = new System.Windows.Forms.TextBox();
             this.cmbcargue = new System.Windows.Forms.ComboBox();
             this.Txtcomentarios = new System.Windows.Forms.TextBox();
             this.Txtplano_pre = new System.Windows.Forms.TextBox();
@@ -108,14 +103,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Btn_Actualizar = new System.Windows.Forms.Button();
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.lblfecha_actual = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -124,7 +115,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TxtEstado_cliente = new System.Windows.Forms.TextBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -135,13 +126,10 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btnbuscar)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_pre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_dia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btncopy2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -691,6 +679,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
+            // TxtEstado_cliente
+            // 
+            this.TxtEstado_cliente.BackColor = System.Drawing.SystemColors.Menu;
+            this.TxtEstado_cliente.Enabled = false;
+            this.TxtEstado_cliente.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEstado_cliente.Location = new System.Drawing.Point(76, 64);
+            this.TxtEstado_cliente.MaxLength = 20;
+            this.TxtEstado_cliente.Multiline = true;
+            this.TxtEstado_cliente.Name = "TxtEstado_cliente";
+            this.TxtEstado_cliente.ShortcutsEnabled = false;
+            this.TxtEstado_cliente.Size = new System.Drawing.Size(108, 26);
+            this.TxtEstado_cliente.TabIndex = 36;
+            this.TxtEstado_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // cmbtipo
             // 
             this.cmbtipo.BackColor = System.Drawing.SystemColors.Menu;
@@ -774,10 +776,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.img_pre);
-            this.groupBox4.Controls.Add(this.img_dia);
-            this.groupBox4.Controls.Add(this.label32);
-            this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.pictureBox6);
             this.groupBox4.Controls.Add(this.pictureBox4);
             this.groupBox4.Controls.Add(this.dtpfecha_desembolso);
@@ -785,8 +783,6 @@
             this.groupBox4.Controls.Add(this.TxtN_Plano);
             this.groupBox4.Controls.Add(this.cmbestado);
             this.groupBox4.Controls.Add(this.Btncopy2);
-            this.groupBox4.Controls.Add(this.TxtNomFuncionario);
-            this.groupBox4.Controls.Add(this.TxtIDfuncionario);
             this.groupBox4.Controls.Add(this.cmbcargue);
             this.groupBox4.Controls.Add(this.Txtcomentarios);
             this.groupBox4.Controls.Add(this.Txtplano_pre);
@@ -802,8 +798,6 @@
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label27);
@@ -814,50 +808,6 @@
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Gestion";
-            // 
-            // img_pre
-            // 
-            this.img_pre.BackColor = System.Drawing.SystemColors.Menu;
-            this.img_pre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.img_pre.Image = global::Usuarios_planta.Properties.Resources.pdf_50px;
-            this.img_pre.Location = new System.Drawing.Point(530, 105);
-            this.img_pre.Name = "img_pre";
-            this.img_pre.Size = new System.Drawing.Size(26, 26);
-            this.img_pre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.img_pre.TabIndex = 186;
-            this.img_pre.TabStop = false;
-            // 
-            // img_dia
-            // 
-            this.img_dia.BackColor = System.Drawing.SystemColors.Menu;
-            this.img_dia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.img_dia.Image = global::Usuarios_planta.Properties.Resources.pdf_50px;
-            this.img_dia.Location = new System.Drawing.Point(291, 104);
-            this.img_dia.Name = "img_dia";
-            this.img_dia.Size = new System.Drawing.Size(26, 26);
-            this.img_dia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.img_dia.TabIndex = 184;
-            this.img_dia.TabStop = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(494, 108);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(30, 17);
-            this.label32.TabIndex = 185;
-            this.label32.Text = "Img";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(258, 108);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(30, 17);
-            this.label14.TabIndex = 184;
-            this.label14.Text = "Img";
             // 
             // pictureBox6
             // 
@@ -948,32 +898,6 @@
             this.Btncopy2.TabIndex = 147;
             this.Btncopy2.TabStop = false;
             this.Btncopy2.Click += new System.EventHandler(this.Btncopy2_Click);
-            // 
-            // TxtNomFuncionario
-            // 
-            this.TxtNomFuncionario.Enabled = false;
-            this.TxtNomFuncionario.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNomFuncionario.Location = new System.Drawing.Point(395, 206);
-            this.TxtNomFuncionario.MaxLength = 100;
-            this.TxtNomFuncionario.Multiline = true;
-            this.TxtNomFuncionario.Name = "TxtNomFuncionario";
-            this.TxtNomFuncionario.Size = new System.Drawing.Size(311, 26);
-            this.TxtNomFuncionario.TabIndex = 57;
-            this.TxtNomFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TxtIDfuncionario
-            // 
-            this.TxtIDfuncionario.BackColor = System.Drawing.SystemColors.Menu;
-            this.TxtIDfuncionario.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtIDfuncionario.Location = new System.Drawing.Point(115, 206);
-            this.TxtIDfuncionario.MaxLength = 10;
-            this.TxtIDfuncionario.Multiline = true;
-            this.TxtIDfuncionario.Name = "TxtIDfuncionario";
-            this.TxtIDfuncionario.Size = new System.Drawing.Size(123, 26);
-            this.TxtIDfuncionario.TabIndex = 22;
-            this.TxtIDfuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtIDfuncionario.TextChanged += new System.EventHandler(this.TxtIDfuncionario_TextChanged);
-            this.TxtIDfuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIDfuncionario_KeyPress);
             // 
             // cmbcargue
             // 
@@ -1143,26 +1067,6 @@
             this.label18.TabIndex = 29;
             this.label18.Text = "Comentarios";
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(9, 210);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(95, 17);
-            this.label31.TabIndex = 54;
-            this.label31.Text = "CC Funcionario";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(258, 210);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(128, 17);
-            this.label30.TabIndex = 55;
-            this.label30.Text = "Nombre Funcionario";
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -1198,31 +1102,6 @@
             // 
             this.epError.ContainerControl = this;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Btn_Actualizar);
-            this.panel1.Controls.Add(this.Btn_Guardar);
-            this.panel1.Location = new System.Drawing.Point(12, 631);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 40);
-            this.panel1.TabIndex = 45;
-            // 
-            // Btn_Actualizar
-            // 
-            this.Btn_Actualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.Btn_Actualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Actualizar.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Actualizar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Actualizar.Location = new System.Drawing.Point(120, 6);
-            this.Btn_Actualizar.Name = "Btn_Actualizar";
-            this.Btn_Actualizar.Size = new System.Drawing.Size(94, 27);
-            this.Btn_Actualizar.TabIndex = 24;
-            this.Btn_Actualizar.Text = "Actualizar";
-            this.Btn_Actualizar.UseVisualStyleBackColor = false;
-            this.Btn_Actualizar.Click += new System.EventHandler(this.Btn_Actualizar_Click);
-            this.Btn_Actualizar.MouseHover += new System.EventHandler(this.Btn_Actualizar_MouseHover);
-            // 
             // Btn_Guardar
             // 
             this.Btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
@@ -1230,7 +1109,7 @@
             this.Btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Guardar.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Guardar.Location = new System.Drawing.Point(12, 6);
+            this.Btn_Guardar.Location = new System.Drawing.Point(12, 631);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(87, 27);
             this.Btn_Guardar.TabIndex = 23;
@@ -1315,19 +1194,20 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
-            // TxtEstado_cliente
+            // btnNuevo
             // 
-            this.TxtEstado_cliente.BackColor = System.Drawing.SystemColors.Menu;
-            this.TxtEstado_cliente.Enabled = false;
-            this.TxtEstado_cliente.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEstado_cliente.Location = new System.Drawing.Point(76, 64);
-            this.TxtEstado_cliente.MaxLength = 20;
-            this.TxtEstado_cliente.Multiline = true;
-            this.TxtEstado_cliente.Name = "TxtEstado_cliente";
-            this.TxtEstado_cliente.ShortcutsEnabled = false;
-            this.TxtEstado_cliente.Size = new System.Drawing.Size(108, 26);
-            this.TxtEstado_cliente.TabIndex = 36;
-            this.TxtEstado_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(109, 631);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(87, 27);
+            this.btnNuevo.TabIndex = 187;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // FormGiros
             // 
@@ -1335,10 +1215,11 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(952, 686);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.lblfecha_actual);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbafiliacion);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.groupBox4);
@@ -1366,13 +1247,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btnbuscar)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_pre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_dia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btncopy2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -1433,19 +1311,13 @@
         private System.Windows.Forms.TextBox Txtcomentarios;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox cmbcargue;
-        private System.Windows.Forms.TextBox TxtNomFuncionario;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox TxtIDfuncionario;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ErrorProvider epError;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox Btnbuscar;
         private System.Windows.Forms.PictureBox Btncopy1;
         private System.Windows.Forms.PictureBox Btncopy;
         private System.Windows.Forms.PictureBox Btncopy2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Btn_Guardar;
-        private System.Windows.Forms.Button Btn_Actualizar;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox Txtnit;
         private System.Windows.Forms.Label label34;
@@ -1471,14 +1343,11 @@
         private System.Windows.Forms.Label lblfecha_actual;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.PictureBox img_pre;
-        private System.Windows.Forms.PictureBox img_dia;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.ComboBox cmbtipo;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox TxtEstado_cliente;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

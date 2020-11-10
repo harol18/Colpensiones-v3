@@ -130,6 +130,7 @@
     <Compile Include="dia_dia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuario.cs" />
     <EmbeddedResource Include="Capa presentacion\Cargue_archivos.resx">
       <DependentUpon>Cargue_archivos.cs</DependentUpon>
     </EmbeddedResource>

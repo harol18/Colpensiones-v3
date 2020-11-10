@@ -16,7 +16,7 @@ namespace Usuarios_planta.Formularios
     public partial class Informes : Form
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=82.2.121.99;Uid=userapp;password=userapp;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds = new Comandos();
         dia_dia cmds_dia = new dia_dia();
@@ -24,14 +24,6 @@ namespace Usuarios_planta.Formularios
         public Informes()
         {
             InitializeComponent();
-        }
-
-        private void cmbinformes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbinformes.Text== "Informe Jueves Cpk Libranza")
-            {
-
-            }
         }
 
         private void Btn_busqueda_Click(object sender, EventArgs e)
@@ -42,8 +34,8 @@ namespace Usuarios_planta.Formularios
         private void Btn_Crear_plano_Click(object sender, EventArgs e)
         {
             //Esta línea de código crea un archivo de texto para la exportación de datos.
-            StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + "archivo_jueves.txt");
-            //StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + ".txt");
+            //StreamWriter file = new StreamWriter(@"C:\\Users\\BBVA\\Desktop\\Colpensiones\\" + "archivo_jueves.txt");
+            StreamWriter file = new StreamWriter(@"D:\\Colpensiones\\" + "archivockl_jueves.txt");
             try
             {
                 string sLine = "";

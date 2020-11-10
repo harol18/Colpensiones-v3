@@ -18,7 +18,8 @@ namespace Usuarios_planta.Formularios
 {
     public partial class FormGiros : Form
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+
 
         Comandos cmds = new Comandos();
         Conversion c = new Conversion();
@@ -125,19 +126,6 @@ namespace Usuarios_planta.Formularios
             cmbrechazo.DataSource = dt;
         }
 
-        private void TxtIDfuncionario_TextChanged(object sender, EventArgs e)
-        {
-            MySqlCommand comando = new MySqlCommand("SELECT * FROM tf_usuarios WHERE Identificacion = @Identificacion ", con);
-            comando.Parameters.AddWithValue("@Identificacion", TxtIDfuncionario.Text);
-            con.Open();
-            MySqlDataReader registro = comando.ExecuteReader();
-            if (registro.Read())
-            {
-                TxtNomFuncionario.Text = registro["Nombre"].ToString();
-            }
-            con.Close();
-        }
-
         private void Txttotal_TextChanged(object sender, EventArgs e)
         {
             Txttotal_letras.Text = c.enletras(Txttotal.Text).ToUpper() + " PESOS";
@@ -149,7 +137,7 @@ namespace Usuarios_planta.Formularios
                 lbafiliacion.Text = "Ok Afiliacion";
             else
             {
-                MessageBox.Show("Numero de Afiliacion no coincide");
+                MessageBox.Show("Numero de Afiliacion no coincide","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 lbafiliacion.Visible = false;
                 Txtafiliacion1.Focus();
                 Txtafiliacion1.Text = "";
@@ -163,18 +151,7 @@ namespace Usuarios_planta.Formularios
             cmds.buscar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente,Txtafiliacion1, Txtafiliacion2, cmbtipo, Txtscoring, Txtconsecutivo,
                              cmbfuerza, cmbdestino, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtentidad, Txtcuota_letras,
                              Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado, cmbrechazo, dtpfecha_rpta,
-                             Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario, TxtNomFuncionario);
-
-            if (Txtnombre.TextLength == 0)
-            {
-                Btn_Actualizar.Enabled = false;
-                Btn_Guardar.Enabled = true;
-            }
-            else
-            {
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = false;
-            }
+                             Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios);
         }
 
         private void Btnsalir_Click(object sender, EventArgs e)
@@ -240,11 +217,7 @@ namespace Usuarios_planta.Formularios
                 ok = false;
                 epError.SetError(Txtplazo, "Debes digitar Plazo");
             }
-            if (TxtIDfuncionario.Text == "")
-            {
-                ok = false;
-                epError.SetError(TxtIDfuncionario, "Debes digitar N° Identificación");
-            }
+           
             return ok;
         }
 
@@ -254,8 +227,7 @@ namespace Usuarios_planta.Formularios
             epError.SetError(Txtafiliacion2, "");
             epError.SetError(Txtscoring, "");
             epError.SetError(Txtmonto, "");
-            epError.SetError(Txtplazo, "");
-            epError.SetError(TxtIDfuncionario, "");
+            epError.SetError(Txtplazo, "");            
         }
 
 
@@ -296,11 +268,7 @@ namespace Usuarios_planta.Formularios
                 cmds.Insertar_colp(Txtradicado,Txtcedula,Txtnombre, TxtEstado_cliente, Txtafiliacion1,Txtafiliacion2,cmbtipo,
                                    Txtscoring,Txtconsecutivo,cmbfuerza,cmbdestino,Txtmonto,Txtplazo,Txtcuota,Txttotal,Txtpagare,Txtnit,Txtentidad,
                                    Txtcuota_letras,Txttotal_letras,cmbestado,cmbcargue,dtpcargue,dtpfecha_desembolso,cmbresultado,
-                                   cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios,TxtIDfuncionario,
-                                   TxtNomFuncionario);
-
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = true;
+                                   cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios);
                 this.Close();
                 Form formulario = new FormGiros();
                 formulario.Show();
@@ -376,7 +344,7 @@ namespace Usuarios_planta.Formularios
         {
             if (cmbestado.Text=="Avanza")
             {
-                Txtcomentarios.Text = "Operacion ISS CPK Libranza desembolso sin VoBo" + " " +fecha.ToString("dd/MM/yyyy"); ;
+                Txtcomentarios.Text = "Operacion ISS CPK Libranza desembolso sin VoBo "  +fecha.ToString("dd/MM/yyyy");
             }
             else if(cmbestado.Text == "Devuelta")
             {
@@ -531,24 +499,11 @@ namespace Usuarios_planta.Formularios
             }
         }
 
-        private void Btn_Actualizar_Click(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-
-            BorrarMensajeError();
-            if (validar())
-            {
-                cmds.actualizar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
-                                    Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtentidad,
-                                    Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado,
-                                    cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
-                                    TxtNomFuncionario);
-
-                Btn_Actualizar.Enabled = true;
-                Btn_Guardar.Enabled = true;
-                this.Close();
-                Form formulario = new FormGiros();
-                formulario.Show();
-            }
+            this.Close();
+            Form formulario = new FormGiros();
+            formulario.Show();
         }
     }
 }
