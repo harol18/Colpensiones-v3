@@ -10,5 +10,6 @@ namespace Usuarios_planta
     {
         public static string Identificacion { get; set; }
         public static string Nombre { get; set; }
+        public static string CE { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Usuarios_planta.Formularios
     public partial class Informes : Form
     {
 
-        MySqlConnection con = new MySqlConnection("server=82.2.121.99;Uid=userapp;password=userapp;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds = new Comandos();
         dia_dia cmds_dia = new dia_dia();
@@ -69,11 +69,6 @@ namespace Usuarios_planta.Formularios
                 MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 file.Close();
             }
-        }
-
-        private void Informes_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

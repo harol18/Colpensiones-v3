@@ -16,6 +16,7 @@ namespace Usuarios_planta.Capa_presentacion
     {
         MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
+
         dia_dia cmds_dia = new dia_dia();
 
         public Planos_dia()

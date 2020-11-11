@@ -179,7 +179,7 @@
             this.cmbtipo.Location = new System.Drawing.Point(762, 65);
             this.cmbtipo.Name = "cmbtipo";
             this.cmbtipo.Size = new System.Drawing.Size(86, 25);
-            this.cmbtipo.TabIndex = 33;
+            this.cmbtipo.TabIndex = 5;
             // 
             // Txtafiliacion2
             // 
@@ -193,7 +193,7 @@
             this.Txtafiliacion2.Size = new System.Drawing.Size(123, 26);
             this.Txtafiliacion2.TabIndex = 4;
             this.Txtafiliacion2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtafiliacion2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion2_KeyPress);
+            this.Txtafiliacion2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             this.Txtafiliacion2.Validated += new System.EventHandler(this.Txtafiliacion2_Validated);
             // 
             // Btnbuscar
@@ -221,7 +221,7 @@
             this.Txtafiliacion1.Size = new System.Drawing.Size(123, 26);
             this.Txtafiliacion1.TabIndex = 3;
             this.Txtafiliacion1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtafiliacion1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion1_KeyPress);
+            this.Txtafiliacion1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // TxtEstado_cliente
             // 
@@ -247,7 +247,7 @@
             this.Txtcedula.TabIndex = 1;
             this.Txtcedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txtcedula.TextChanged += new System.EventHandler(this.Txtcedula_TextChanged);
-            this.Txtcedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtcedula_KeyPress);
+            this.Txtcedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             this.Txtcedula.Validated += new System.EventHandler(this.Txtcedula_Validated);
             // 
             // Txtnombre
@@ -260,7 +260,7 @@
             this.Txtnombre.Size = new System.Drawing.Size(382, 26);
             this.Txtnombre.TabIndex = 2;
             this.Txtnombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtnombre_KeyPress);
+            this.Txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // Txtradicado
             // 
@@ -272,7 +272,7 @@
             this.Txtradicado.Size = new System.Drawing.Size(108, 26);
             this.Txtradicado.TabIndex = 0;
             this.Txtradicado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtradicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtradicado_KeyPress);
+            this.Txtradicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // label20
             // 
@@ -397,7 +397,7 @@
             this.Txtrtq.Size = new System.Drawing.Size(156, 26);
             this.Txtrtq.TabIndex = 9;
             this.Txtrtq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtrtq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtrtq_KeyPress);
+            this.Txtrtq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // label25
             // 
@@ -420,7 +420,7 @@
             this.Txtconsecutivo.Size = new System.Drawing.Size(102, 26);
             this.Txtconsecutivo.TabIndex = 6;
             this.Txtconsecutivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtconsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtconsecutivo_KeyPress);
+            this.Txtconsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // cmbdestino
             // 
@@ -437,6 +437,7 @@
             this.cmbdestino.Size = new System.Drawing.Size(143, 25);
             this.cmbdestino.TabIndex = 8;
             this.cmbdestino.SelectedIndexChanged += new System.EventHandler(this.cmbdestino_SelectedIndexChanged);
+            this.cmbdestino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // pictureBox8
             // 
@@ -592,9 +593,9 @@
             this.Txtplazo.Multiline = true;
             this.Txtplazo.Name = "Txtplazo";
             this.Txtplazo.Size = new System.Drawing.Size(70, 26);
-            this.Txtplazo.TabIndex = 10;
+            this.Txtplazo.TabIndex = 11;
             this.Txtplazo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtplazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtplazo_KeyPress);
+            this.Txtplazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // Txtmonto
             // 
@@ -605,9 +606,9 @@
             this.Txtmonto.Multiline = true;
             this.Txtmonto.Name = "Txtmonto";
             this.Txtmonto.Size = new System.Drawing.Size(110, 26);
-            this.Txtmonto.TabIndex = 9;
+            this.Txtmonto.TabIndex = 10;
             this.Txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtmonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtmonto_KeyPress);
+            this.Txtmonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             this.Txtmonto.Validated += new System.EventHandler(this.Txtmonto_Validated);
             // 
             // Txtcuota
@@ -619,10 +620,10 @@
             this.Txtcuota.Multiline = true;
             this.Txtcuota.Name = "Txtcuota";
             this.Txtcuota.Size = new System.Drawing.Size(124, 26);
-            this.Txtcuota.TabIndex = 11;
+            this.Txtcuota.TabIndex = 12;
             this.Txtcuota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txtcuota.TextChanged += new System.EventHandler(this.Txtcuota_TextChanged);
-            this.Txtcuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtcuota_KeyPress);
+            this.Txtcuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             this.Txtcuota.Validated += new System.EventHandler(this.Txtcuota_Validated);
             // 
             // Txtscoring
@@ -636,7 +637,7 @@
             this.Txtscoring.Size = new System.Drawing.Size(156, 26);
             this.Txtscoring.TabIndex = 5;
             this.Txtscoring.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Txtscoring.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtscoring_KeyPress);
+            this.Txtscoring.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             this.Txtscoring.Validated += new System.EventHandler(this.Txtscoring_Validated);
             // 
             // cmbfuerza
@@ -652,6 +653,7 @@
             this.cmbfuerza.Name = "cmbfuerza";
             this.cmbfuerza.Size = new System.Drawing.Size(127, 25);
             this.cmbfuerza.TabIndex = 7;
+            this.cmbfuerza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // label6
             // 
@@ -819,8 +821,9 @@
             this.cmbrestriccion.Location = new System.Drawing.Point(749, 64);
             this.cmbrestriccion.Name = "cmbrestriccion";
             this.cmbrestriccion.Size = new System.Drawing.Size(99, 25);
-            this.cmbrestriccion.TabIndex = 185;
+            this.cmbrestriccion.TabIndex = 19;
             this.cmbrestriccion.SelectedIndexChanged += new System.EventHandler(this.cmbrestriccion_SelectedIndexChanged);
+            this.cmbrestriccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // label5
             // 
@@ -867,7 +870,8 @@
             this.dtpfecha_rpta.Location = new System.Drawing.Point(535, 64);
             this.dtpfecha_rpta.Name = "dtpfecha_rpta";
             this.dtpfecha_rpta.Size = new System.Drawing.Size(107, 25);
-            this.dtpfecha_rpta.TabIndex = 20;
+            this.dtpfecha_rpta.TabIndex = 18;
+            this.dtpfecha_rpta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // TxtN_Plano
             // 
@@ -897,6 +901,7 @@
             this.cmbestado.Size = new System.Drawing.Size(148, 25);
             this.cmbestado.TabIndex = 13;
             this.cmbestado.SelectedIndexChanged += new System.EventHandler(this.cmbestado_SelectedIndexChanged);
+            this.cmbestado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // Btncopy2
             // 
@@ -921,6 +926,7 @@
             this.cmbcargue.Name = "cmbcargue";
             this.cmbcargue.Size = new System.Drawing.Size(163, 25);
             this.cmbcargue.TabIndex = 14;
+            this.cmbcargue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // Txtcomentarios
             // 
@@ -958,8 +964,9 @@
             this.cmbresultado.Location = new System.Drawing.Point(115, 64);
             this.cmbresultado.Name = "cmbresultado";
             this.cmbresultado.Size = new System.Drawing.Size(148, 25);
-            this.cmbresultado.TabIndex = 17;
+            this.cmbresultado.TabIndex = 16;
             this.cmbresultado.SelectedIndexChanged += new System.EventHandler(this.cmbresultado_SelectedIndexChanged);
+            this.cmbresultado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // cmbrechazo
             // 
@@ -969,7 +976,8 @@
             this.cmbrechazo.Location = new System.Drawing.Point(346, 64);
             this.cmbrechazo.Name = "cmbrechazo";
             this.cmbrechazo.Size = new System.Drawing.Size(83, 25);
-            this.cmbrechazo.TabIndex = 19;
+            this.cmbrechazo.TabIndex = 17;
+            this.cmbrechazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             this.cmbrechazo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbrechazo_MouseClick);
             // 
             // Txtplano_dia
@@ -994,6 +1002,7 @@
             this.dtpcargue.Name = "dtpcargue";
             this.dtpcargue.Size = new System.Drawing.Size(111, 25);
             this.dtpcargue.TabIndex = 15;
+            this.dtpcargue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TeclaEnter);
             // 
             // label16
             // 
@@ -1102,10 +1111,10 @@
             this.Btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Guardar.Font = new System.Drawing.Font("SF Pro Display", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.Btn_Guardar.Location = new System.Drawing.Point(12, 628);
+            this.Btn_Guardar.Location = new System.Drawing.Point(16, 613);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(87, 27);
-            this.Btn_Guardar.TabIndex = 23;
+            this.Btn_Guardar.TabIndex = 20;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = false;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);

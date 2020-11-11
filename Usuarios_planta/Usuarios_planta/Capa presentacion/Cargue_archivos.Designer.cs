@@ -72,7 +72,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 253);
             this.panel1.TabIndex = 37;
-            
             // 
             // label3
             // 

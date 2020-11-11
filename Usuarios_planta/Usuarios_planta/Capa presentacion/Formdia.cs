@@ -247,6 +247,11 @@ namespace Usuarios_planta.Capa_presentacion
             {
                 ok = false;
                 epError.SetError(Txtplazo, "Debes digitar Plazo");
+            }
+            if (Txtplazo.Text == "")
+            {
+                ok = false;
+                epError.SetError(cmbestado, "Debes seleccionar estado de la operacion");
             }            
             return ok;
         }
@@ -257,7 +262,8 @@ namespace Usuarios_planta.Capa_presentacion
             epError.SetError(Txtafiliacion2, "");
             epError.SetError(Txtscoring, "");
             epError.SetError(Txtmonto, "");
-            epError.SetError(Txtplazo, "");            
+            epError.SetError(Txtplazo, "");
+            epError.SetError(cmbestado, "");
         }
 
         private void Txtcuota_Validated(object sender, EventArgs e)
@@ -393,115 +399,7 @@ namespace Usuarios_planta.Capa_presentacion
         {
             dgv_datos_plano.DataSource = null;
             cmds.busqueda_plano(dgv_datos_plano, Txtbusqueda);
-        }
-
-        private void Txtradicado_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtcedula_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtnombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtafiliacion1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtafiliacion2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtscoring_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtconsecutivo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtrtq_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtmonto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtplazo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void Txtcuota_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void TxtIDfuncionario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
+        }       
 
         private void cmbdestino_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -510,6 +408,15 @@ namespace Usuarios_planta.Capa_presentacion
             {
                 cmds_dia.buscar_recaudo(Txtcedula);
             }          
+        }
+
+        private void TeclaEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }

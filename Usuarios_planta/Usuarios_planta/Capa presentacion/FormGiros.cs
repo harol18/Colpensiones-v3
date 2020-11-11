@@ -217,7 +217,12 @@ namespace Usuarios_planta.Formularios
                 ok = false;
                 epError.SetError(Txtplazo, "Debes digitar Plazo");
             }
-           
+            if (cmbestado.Text == "")
+            {
+                ok = false;
+                epError.SetError(cmbestado, "Debe seleccionar estado de la operacion");
+            }
+
             return ok;
         }
 
@@ -227,7 +232,8 @@ namespace Usuarios_planta.Formularios
             epError.SetError(Txtafiliacion2, "");
             epError.SetError(Txtscoring, "");
             epError.SetError(Txtmonto, "");
-            epError.SetError(Txtplazo, "");            
+            epError.SetError(Txtplazo, "");
+            epError.SetError(cmbestado, "");
         }
 
 

@@ -16,7 +16,9 @@ namespace Usuarios_planta.Capa_presentacion
 {
     public partial class Login : Form
     {
-        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=82.2.121.99;Uid=userapp;password=userapp;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        
+
 
         public Login()
         {
@@ -28,7 +30,7 @@ namespace Usuarios_planta.Capa_presentacion
             try
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("Select Identificacion,nombre from tf_usuarios where Identificacion=@Identificacion and Contraseña=@Contraseña", con);
+                MySqlCommand cmd = new MySqlCommand("Select Identificacion,nombre, CE from tf_usuarios where Identificacion=@Identificacion and Contraseña=@Contraseña", con);
                 cmd.Parameters.AddWithValue("@Identificacion", user);
                 cmd.Parameters.AddWithValue("@Contraseña", pass);
                 MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
@@ -41,6 +43,7 @@ namespace Usuarios_planta.Capa_presentacion
                     MessageBox.Show("Bienvenido !! " + dt.Rows[0][1].ToString());
                     usuario.Identificacion = dt.Rows[0][0].ToString();
                     usuario.Nombre = dt.Rows[0][1].ToString();
+                    usuario.CE= dt.Rows[0][2].ToString();
                     Form formulario = new VoBo();
                     formulario.Show();
                 }
@@ -72,6 +75,11 @@ namespace Usuarios_planta.Capa_presentacion
         private void Ingresar(object sender, EventArgs e)
         {
             loguear(Txtusuario.Text, Txtcontraseña.Text);
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

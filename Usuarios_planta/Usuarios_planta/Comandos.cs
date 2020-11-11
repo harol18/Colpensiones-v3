@@ -15,9 +15,7 @@ namespace Usuarios_planta
 {
     class Comandos
     {
-
         MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
-
 
 
         public void Insertar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
@@ -64,9 +62,9 @@ namespace Usuarios_planta
                 cmd.Parameters.AddWithValue("@_Plano_Dia", Txtplano_dia.Text);
                 cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text);
                 cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
-                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
+                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);                
                 cmd.Parameters.AddWithValue("@_Id_Funcionario", usuario.Identificacion);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", usuario.Nombre);
+                cmd.Parameters.AddWithValue("@_CE", usuario.CE);
                 cmd.ExecuteNonQuery();
                 myTrans.Commit();
                 MessageBox.Show("Información Almacenada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
